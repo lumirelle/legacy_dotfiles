@@ -1,7 +1,0 @@
-{{ include "dot_config/shared/nushell/config_default.nu" }}
-{{ if eq .chezmoi.os "windows" }}
-	source aliases/winget.nu
-{{ end }}
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
-	source aliases/pacman.nu
-{{ end }}
