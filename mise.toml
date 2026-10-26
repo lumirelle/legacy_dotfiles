@@ -5,12 +5,14 @@
 node = "latest"
 nub = "latest"
 rust = "stable-gnu"
+go = "latest"
 # Quality
 hk = "latest"
 stylua = "latest"
 pkl = "latest"
 "cargo:https://github.com/nushell/nufmt" = "HEAD"
 shfmt = "latest"
+"go:github.com/gohugoio/gotmplfmt" = "latest"
 
 [deps.nub]
 description = 'Automatically install Node.js dependencies via nub.'

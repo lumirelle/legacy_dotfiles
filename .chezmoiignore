@@ -1,0 +1,73 @@
+# Project configuration
+.lazy.lua
+.vscode
+.oxlintrc.json
+eslint.config.js
+taze.config.ts
+package.json
+mise.toml
+hk.pkl
+tsconfig.json
+nufmt.nuon
+
+# Dependency & lockfile
+node_modules
+mise.lock
+nub.lock
+skills-lock.json
+
+# Documentation
+docs
+*.md
+
+# Scripts
+scripts
+
+# Windows specific configurations
+{{ if ne .chezmoi.os "windows" }}
+	AppData
+	Documents
+	.wslconfig
+	**/*.reg
+	**/*.cmd
+	**/*.ps1
+{{ end }}
+# Configurations should be ignored on Windows Subsystem for Linux
+{{ if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+	.config/shared/clash-verge-rev
+	.config/shared/rime
+	.config/shared/vscode
+	.config/shared/zed
+	.local/share/io.github.clash-verge-rev.clash-verge-rev
+	.local/shared/fcitx5
+	.config/fcitx
+	.config/ibus
+	.config/Code
+	.config/Zed
+{{ end }}
+
+# MacOS & Linux shared configurations
+{{ if and (ne .chezmoi.os "darwin") (ne .chezmoi.os "linux") }}
+	.config/nvim
+	.config/herdr
+	.config/fnox
+	.profile
+	.bashrc
+	**/*.sh
+{{ end }}
+
+# MacOS specific configurations
+{{ if ne .chezmoi.os "darwin" }}
+	Library
+{{ end }}
+
+# Linux specific configurations
+{{ if ne .chezmoi.os "linux" }}
+	.local/share/io.github.clash-verge-rev.clash-verge-rev
+	.local/shared/fcitx5
+	.config/fcitx
+	.config/ibus
+	.config/nushell
+	.config/Code
+	.config/Zed
+{{ end }}

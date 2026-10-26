@@ -4,6 +4,21 @@ import "package://github.com/jdx/hk/releases/download/v2.6.0/hk@2.6.0#/Builtins.
 
 steps {
   // Code
+  ["gotmplfmt"] {
+    glob = List(".chezmoiignore", "**/*.tmpl")
+    check_list_files = new CommandSpec {
+      command = new Command {
+        argv = List("node", "./scripts/gotmplfmt-check.js", "{{ files }}")
+      }
+      effect = "read"
+    }
+    fix = new CommandSpec {
+      command = new Command {
+        argv = List("gotmplfmt", "-w", "{{ files }}")
+      }
+      effect = "write"
+    }
+  }
   ["oxlint"] = Builtins.ox_lint
   ["eslint"] = (Builtins.eslint) {
     batch = false
