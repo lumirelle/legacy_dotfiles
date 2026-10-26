@@ -1,5 +1,10 @@
 # Dotfiles
 
+> [!Caution]
+> Now I finally switch to [Mise managed dotfiles](https://github.com/lumirelle/dotfiles), for better integration of Mise managed tools.
+>
+> Will this be the last migration? XD
+
 My dotfiles (also application configuration files), out-of-box (for me).
 
 ## Configurations Included (By Category)
